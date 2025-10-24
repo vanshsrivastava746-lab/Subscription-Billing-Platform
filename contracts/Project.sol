@@ -15,3 +15,9 @@ contract SubscriptionBilling {
         uint duration;         // duration of subscription in seconds
         bool active;
     }
+ // Subscriber details
+    struct Subscriber {
+        uint planId;
+        uint startTimestamp;
+        bool active;
+    }
