@@ -21,3 +21,9 @@ contract SubscriptionBilling {
         uint startTimestamp;
         bool active;
     }
+
+address public owner;
+    uint public nextPlanId;
+    mapping(uint => Plan) public plans;
+    mapping(address => Subscriber) public subscribers;
+    
