@@ -27,3 +27,7 @@ address public owner;
     mapping(uint => Plan) public plans;
     mapping(address => Subscriber) public subscribers;
     
+event PlanCreated(uint planId, string name, uint price, uint duration);
+    event Subscribed(address subscriber, uint planId, uint startTimestamp);
+    event SubscriptionCancelled(address subscriber, uint planId);
+    event PaymentReceived(address subscriber, uint amount, uint timestamp);
