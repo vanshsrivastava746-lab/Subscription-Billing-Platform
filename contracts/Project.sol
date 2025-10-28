@@ -36,3 +36,8 @@ modifier onlyOwner() {
         require(msg.sender == owner, "Only owner can perform this");
         _;
     }
+
+constructor() {
+        owner = msg.sender;
+        nextPlanId = 1;
+    }
