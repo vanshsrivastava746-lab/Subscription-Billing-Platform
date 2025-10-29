@@ -41,3 +41,12 @@ constructor() {
         owner = msg.sender;
         nextPlanId = 1;
     }
+
+ // Owner creates new subscription plans
+    function createPlan(string memory _name, uint _price, uint _duration) public onlyOwner {
+        require(_price > 0, "Price must be positive");
+        require(_duration > 0, "Duration must be positive");
+        plans[nextPlanId] = Plan(_name, _price, _duration, true);
+        emit PlanCreated(nextPlanId, _name, _price, _duration);
+        nextPlanId++;
+    }
