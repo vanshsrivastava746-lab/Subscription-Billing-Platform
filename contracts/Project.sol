@@ -50,3 +50,9 @@ constructor() {
         emit PlanCreated(nextPlanId, _name, _price, _duration);
         nextPlanId++;
     }
+
+ // User subscribes or renews to a plan by paying the plan price
+    function subscribe(uint _planId) public payable {
+        Plan memory p = plans[_planId];
+        require(p.active, "Plan not active");
+        require(msg.value == p.price, "Incorrect payment amount");
